@@ -38,7 +38,9 @@ function AuthForm() {
         email: enteredEmail,
         password: enteredPassword,
       });
-      console.log(result);
+      if (!result.error) {
+        router.replace("/profile");
+      }
     } else {
       try {
         const result = await createUser(enteredEmail, enteredPassword);
